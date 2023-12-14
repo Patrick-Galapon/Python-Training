@@ -27,17 +27,24 @@ import sys
 def countingSort(arr):
     
     sortedArr = []
-    for i in range(100):
+    counter = 0
+    for i in range(max(arr)+1):
         sortedArr.append(0)
-        
+    
     for i in arr:
         sortedArr[i] += 1
-    
-    return sortedArr
+
+    finalArray = []
+    for i in sortedArr:
+        for j in range(i):
+            finalArray.append(counter)
+        counter += 1
+
+    return finalArray
 
 if __name__ == '__main__':
 
-    arr = [1,1,3,2,1]
+    arr = [9,3,0,11,1,0,2]
 
     result = countingSort(arr)
     print(result)
